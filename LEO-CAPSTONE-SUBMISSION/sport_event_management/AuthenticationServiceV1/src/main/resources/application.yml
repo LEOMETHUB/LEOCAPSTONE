@@ -1,0 +1,21 @@
+# Microservices related config
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/UserDB
+    username: postgres
+    password: root
+    hikari:
+      maximum-pool-size: 4
+  application:
+    name: MS01-AuthenticationService-v1
+
+
+server:
+  port: 8081

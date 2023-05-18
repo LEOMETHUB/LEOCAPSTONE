@@ -1,0 +1,977 @@
+{
+	"info": {
+		"_postman_id": "660380e0-22be-4bba-bdf6-dc287962b3f3",
+		"name": "Sport Management API Gateway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Players",
+			"item": [
+				{
+					"name": "GetPlayers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MS7-PlayerService-v1/players/getPlayers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS7-PlayerService-v1",
+								"players",
+								"getPlayers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SearchPlayer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MS07-PlayerService-v1/search/players?player_id=2&search=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS07-PlayerService-v1",
+								"search",
+								"players"
+							],
+							"query": [
+								{
+									"key": "player_id",
+									"value": "2"
+								},
+								{
+									"key": "search",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InsertPlayer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"firstName\": \"test11\",\r\n        \"lastName\": \"test11\",\r\n        \"country\": \"PH\",\r\n        \"teamId\": 2\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/MS07-PlayerService-v1/players/addPlayer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS07-PlayerService-v1",
+								"players",
+								"addPlayer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdatePlayer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"firstName\": \"test2\",\r\n        \"lastName\": \"test2\",\r\n        \"country\": \"SG\",\r\n        \"teamId\": 1\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/MS07-PlayerService-v1/players/updatePlayer?player_id=25",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS07-PlayerService-v1",
+								"players",
+								"updatePlayer"
+							],
+							"query": [
+								{
+									"key": "player_id",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeletePlayer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MS07-PlayerService-v1/players/deletePlayer?player_id=25",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS07-PlayerService-v1",
+								"players",
+								"deletePlayer"
+							],
+							"query": [
+								{
+									"key": "player_id",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tournaments",
+			"item": [
+				{
+					"name": "GetTournaments",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"teamName\": \"\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/MS9-TournamentService-v1/tournaments/getTournaments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS9-TournamentService-v1",
+								"tournaments",
+								"getTournaments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SearchTournament",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MS04-TournamentService-v1/search/tournaments?tournament_id=2&search=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS04-TournamentService-v1",
+								"search",
+								"tournaments"
+							],
+							"query": [
+								{
+									"key": "tournament_id",
+									"value": "2"
+								},
+								{
+									"key": "search",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InsertTournament",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"tournament_name\": \"test4\",\r\n        \"tournament_category\": \"test4\",\r\n        \"tournament_style\": \"test\",\r\n        \"start_date\": \"2023-05-18\",\r\n        \"end_date\": \"2023-05-20\",\r\n        \"team_list\":\"1,2,3,3,4\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/MS04-TournamentService-v1/tournaments/addTournament",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS04-TournamentService-v1",
+								"tournaments",
+								"addTournament"
+							],
+							"query": [
+								{
+									"key": "tournament_id",
+									"value": "9",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateTournament",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"tournament_name\": \"test4\",\r\n        \"tournament_category\": \"test4\",\r\n        \"tournament_style\": \"test\",\r\n        \"start_date\": \"2023-05-18\",\r\n        \"end_date\": \"2023-05-20\",\r\n        \"team_list\":\"1,2,3,44\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/MS04-TournamentService-v1/tournaments/updateTournament?tournament_id=7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS04-TournamentService-v1",
+								"tournaments",
+								"updateTournament"
+							],
+							"query": [
+								{
+									"key": "tournament_id",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteTournament",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MS04-TournamentService-v1/tournaments/deleteTournament?tournament_id=7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS04-TournamentService-v1",
+								"tournaments",
+								"deleteTournament"
+							],
+							"query": [
+								{
+									"key": "tournament_id",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Teams",
+			"item": [
+				{
+					"name": "GetTeams",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MS06-TeamService-v1/teams/getTeams",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS06-TeamService-v1",
+								"teams",
+								"getTeams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InsertTeams",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"teamName\": \"test\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/MS06-TeamService-v1/teams/addTeam",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS06-TeamService-v1",
+								"teams",
+								"addTeam"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteTeam",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MS06-TeamService-v1/teams/deleteTeam?team_id=9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS06-TeamService-v1",
+								"teams",
+								"deleteTeam"
+							],
+							"query": [
+								{
+									"key": "team_id",
+									"value": "9"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Field",
+			"item": [
+				{
+					"name": "GetFields",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MS03-FieldService-v1/fields/getFields",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS03-FieldService-v1",
+								"fields",
+								"getFields"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddField",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fieldName\":\"test\",\r\n    \"fieldAddress\":\"test\",\r\n    \"fieldCapacity\":\"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/MS03-FieldService-v1/fields/addField",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS03-FieldService-v1",
+								"fields",
+								"addField"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateField",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fieldName\":\"test\",\r\n    \"fieldAddress\":\"test\",\r\n    \"fieldCapacity\":\"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/MS03-FieldService-v1/fields/updateField?field_id=54",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS03-FieldService-v1",
+								"fields",
+								"updateField"
+							],
+							"query": [
+								{
+									"key": "field_id",
+									"value": "54"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteField",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MS03-FieldService-v1/MS10-FieldService-v1/fields/deleteField?field_id=6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS03-FieldService-v1",
+								"MS10-FieldService-v1",
+								"fields",
+								"deleteField"
+							],
+							"query": [
+								{
+									"key": "field_id",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tickets",
+			"item": [
+				{
+					"name": "GetTickets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MS05-TicketService-v1/tickets/getTickets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS05-TicketService-v1",
+								"tickets",
+								"getTickets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SearchTicket",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MS11-TicketService-v1/tickets/search?ticket_id=1&search=ma",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS11-TicketService-v1",
+								"tickets",
+								"search"
+							],
+							"query": [
+								{
+									"key": "ticket_id",
+									"value": "1"
+								},
+								{
+									"key": "search",
+									"value": "ma"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteTicket",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"customerName\": \"Ramon Magsaysay\",\r\n        \"ticketPrice\": 2000.0,\r\n        \"match_id\": \r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/MS05-TicketService-v1/tickets/deleteTicket?ticket_id=11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS05-TicketService-v1",
+								"tickets",
+								"deleteTicket"
+							],
+							"query": [
+								{
+									"key": "ticket_id",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InsertTicket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"customerName\": \"test\",\r\n        \"ticketPrice\": 2000.0,\r\n        \"matchID\": 1\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/MS05-TicketService-v1/tickets/addTicket",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS05-TicketService-v1",
+								"tickets",
+								"addTicket"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateTicket",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"customerName\": \"test\",\r\n        \"ticketPrice\": 2000.0,\r\n        \"matchID\": 2\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/MS05-TicketService-v1/tickets/updateTicket?ticket_id=11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS05-TicketService-v1",
+								"tickets",
+								"updateTicket"
+							],
+							"query": [
+								{
+									"key": "ticket_id",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Matches",
+			"item": [
+				{
+					"name": "GetMatches",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MS02-MatchService-v1/matches/getMatches",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS02-MatchService-v1",
+								"matches",
+								"getMatches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SearchMatches",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MS02-MatchService-v1/matches/search?match_id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS02-MatchService-v1",
+								"matches",
+								"search"
+							],
+							"query": [
+								{
+									"key": "match_id",
+									"value": "1"
+								},
+								{
+									"key": "search",
+									"value": "Leo",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InsertMatch",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"startDate\":\"2023-05-18\",\r\n    \"endDate\":\"2023-05-27\",\r\n    \"tournamentId\":1,\r\n    \"fieldId\":1,\r\n    \"players\":\"1,2,3\",\r\n    \"teams\":\"1,2,3,5,6\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/MS02-MatchService-v1/matches/addMatch",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS02-MatchService-v1",
+								"matches",
+								"addMatch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateMatch",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"startDate\":\"2023-05-18\",\r\n    \"endDate\":\"2023-05-27\",\r\n    \"tournamentId\":1,\r\n    \"fieldId\":1,\r\n    \"players\":\"1,2,3\",\r\n    \"teams\":\"1,2,3,5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/MS02-MatchService-v1/matches/updateMatch?matchId=11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS02-MatchService-v1",
+								"matches",
+								"updateMatch"
+							],
+							"query": [
+								{
+									"key": "matchId",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteMatch",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MS02-MatchService-v1/matches/deleteMatch?match_id= 11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS02-MatchService-v1",
+								"matches",
+								"deleteMatch"
+							],
+							"query": [
+								{
+									"key": "match_id",
+									"value": " 11"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\":\"test4\",\r\n    \"last_name\":\"test4\",\r\n    \"username\":\"root4\",\r\n    \"password\":\"root4\",\r\n    \"role\":\"user\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/MS3-AuthenticationService-v1/sportManagement/auth/register/form",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS3-AuthenticationService-v1",
+								"sportManagement",
+								"auth",
+								"register",
+								"form"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"root4\",\r\n    \"password\":\"root4\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/MS3-AuthenticationService-v1/sportManagement/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS3-AuthenticationService-v1",
+								"sportManagement",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyb290NCIsImlhdCI6MTY4MzEwMzA1MywiZXhwIjoxNjgzMTA0ODUzfQ.DIh3xLcBP1mi9sCf4AiybGmTQCUu95szPO7_pMkcgls",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MS3-AuthenticationService-v1/sportManagement/auth/user/test",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MS3-AuthenticationService-v1",
+								"sportManagement",
+								"auth",
+								"user",
+								"test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8083/sportManagement/auth/logout?token=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyb290MSIsImlhdCI6MTY4Mzc3NTAyMywiZXhwIjoxNjgzNzc2ODIzfQ.55TcGC4a-mU3Y3IjPa854tpkn8AMaYPEdBcRlYPyK4E",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"sportManagement",
+								"auth",
+								"logout"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyb290MSIsImlhdCI6MTY4Mzc3NTAyMywiZXhwIjoxNjgzNzc2ODIzfQ.55TcGC4a-mU3Y3IjPa854tpkn8AMaYPEdBcRlYPyK4E"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

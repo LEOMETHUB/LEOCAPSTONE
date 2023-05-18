@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MatchController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MatchService</a> &gt; <a href="index.source.html" class="el_package">org.match_service.controller</a> &gt; <span class="el_source">MatchController.java</span></div><h1>MatchController.java</h1><pre class="source lang-java linenums">package org.match_service.controller;
+
+
+import org.match_service.entity.MatchDetails;
+import org.match_service.pojo.MatchPojo;
+import org.match_service.entity.Match;
+import org.match_service.service.MatchService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@RestController
+<span class="fc" id="L17">public class MatchController {</span>
+
+    @Autowired
+    MatchService matchService;
+
+    @GetMapping(&quot;/matches/getMatches&quot;)
+    public ResponseEntity&lt;List&lt;MatchDetails&gt;&gt; getAllMatches()  {
+<span class="fc" id="L24">        return new ResponseEntity&lt;&gt;(matchService.getAllMatches(), HttpStatus.OK);</span>
+    }
+
+    @GetMapping(&quot;/getMatch/{match_id}&quot;)
+    public ResponseEntity&lt;Match&gt; getMatchByID(@PathVariable(&quot;match_id&quot;) Integer matchID)  {
+<span class="fc" id="L29">            return new ResponseEntity&lt;&gt;(matchService.getMatch(matchID), HttpStatus.OK);</span>
+    }
+
+    @GetMapping (&quot;matches/search&quot;)
+    public ResponseEntity&lt;List&lt;MatchDetails&gt;&gt; searchMatchesByParam
+            (@RequestParam (value = &quot;match_id&quot;,required = false) Integer id,
+             @RequestParam(value = &quot;search&quot;, required = false) Integer param) {
+<span class="fc" id="L36">                return new ResponseEntity&lt;&gt;(matchService.searchMatchesByParam(id,param),HttpStatus.OK);</span>
+    }
+
+    @PostMapping(&quot;/matches/addMatch&quot;)
+    public ResponseEntity&lt;String&gt; addMatch(@RequestBody MatchPojo matchPojo) {
+<span class="fc" id="L41">            List&lt;Object&gt; addResult = new ArrayList&lt;&gt;(matchService.saveMatch(matchPojo, 0,&quot;insert&quot;));</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">            if(Boolean.TRUE.equals(addResult.get(0))){</span>
+<span class="fc" id="L43">                return new ResponseEntity&lt;&gt;(String.valueOf(addResult.get(1)), HttpStatus.OK);</span>
+            }else {
+<span class="fc" id="L45">                return new ResponseEntity&lt;&gt;(String.valueOf(addResult.get(1)), HttpStatus.BAD_REQUEST);</span>
+            }
+    }
+
+    @PutMapping(&quot;/matches/updateMatch&quot;)
+    public ResponseEntity&lt;String&gt; updateMatch(@RequestBody MatchPojo matchPojo, @RequestParam(value = &quot;match_id&quot;) Integer matchId) {
+<span class="fc" id="L51">            List&lt;Object&gt; updateResult = new ArrayList&lt;&gt;(matchService.saveMatch(matchPojo, matchId, &quot;update&quot;));</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">            if(Boolean.TRUE.equals(updateResult.get(0))){</span>
+<span class="fc" id="L53">                return new ResponseEntity&lt;&gt;(String.valueOf(updateResult.get(1)), HttpStatus.OK);</span>
+            }else {
+<span class="fc" id="L55">                return new ResponseEntity&lt;&gt;(String.valueOf(updateResult.get(1)), HttpStatus.BAD_REQUEST);</span>
+            }
+    }
+
+    @DeleteMapping (&quot;/matches/deleteMatch&quot;)
+    public ResponseEntity&lt;String&gt; deleteMatch(@RequestParam(value = &quot;match_id&quot; , required = false) Integer matchId) {
+<span class="fc" id="L61">            return new ResponseEntity&lt;&gt;(matchService.deleteMatch(matchId), HttpStatus.OK);</span>
+    }
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -1,0 +1,73 @@
+spring:
+  application:
+    name: api-gateway
+  main:
+    web-application-type: reactive
+
+  ##GATEWAY CONFIGURATIONS
+  cloud:
+    gateway:
+      routes:
+
+        ##MS01-AuthenticationService-v1
+        - id: MS01-AuthenticationService-v1
+          uri: lb://MS01-AuthenticationService-v1
+          predicates:
+            - Path=/MS01-AuthenticationService-v1/**
+          filters:
+            - StripPrefix=1
+
+        ##MS04-TournamentService-v1
+        - id: MS04-TournamentService-v1
+          uri: lb://MS04-TournamentService-v1
+          predicates:
+            - Path=/MS04-TournamentService-v1/**
+          filters:
+            - StripPrefix=1
+
+        ##MS05-TicketService-v1
+        - id: MS05-TicketService-v1
+          uri: lb://MS05-TicketService-v1
+          predicates:
+            - Path=/MS05-TicketService-v1/**
+          filters:
+            - StripPrefix=1
+
+        ##MS06-TeamService-v1
+        - id: MS06-TeamService-v1
+          uri: lb://MS06-TeamService-v1
+          predicates:
+            - Path=/MS06-TeamService-v1/**
+          filters:
+            - StripPrefix=1
+
+
+        ##MS07-PlayerService-v1
+        - id: MS07-PlayerService-v1
+          uri: lb://MS07-PlayerService-v1
+          predicates:
+            - Path=/MS07-PlayerService-v1/**
+          filters:
+            - StripPrefix=1
+
+        - id: MS02-MatchService-v1
+          uri: lb://MS02-MatchService-v1
+          predicates:
+            - Path=/MS02-MatchService-v1/**
+          filters:
+            - StripPrefix=1
+
+        - id: MS03-FieldService-v1
+          uri: lb://MS03-FieldService-v1
+          predicates:
+            - Path=/MS03-FieldService-v1/**
+          filters:
+            - StripPrefix=1
+
+server:
+  port: 8080
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TicketController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TicketService</a> &gt; <a href="index.source.html" class="el_package">sporteventmanagement.controller</a> &gt; <span class="el_source">TicketController.java</span></div><h1>TicketController.java</h1><pre class="source lang-java linenums">package sporteventmanagement.controller;
+
+
+import sporteventmanagement.entity.*;
+import sporteventmanagement.exception.InvalidInputException;
+import sporteventmanagement.pojo.TicketPojo;
+import sporteventmanagement.service.TicketService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
+@RestController
+<span class="fc" id="L16">public class TicketController {</span>
+
+
+    @Autowired
+    TicketService ticketService;
+
+
+    @GetMapping(&quot;/tickets/getTickets&quot;)
+    public ResponseEntity&lt;List&lt;TicketDetails&gt;&gt; getTickets(){
+<span class="fc" id="L25">        return new ResponseEntity&lt;&gt;(ticketService.getAllTicket(),HttpStatus.OK);</span>
+    }
+
+    @GetMapping(&quot;/tickets/search&quot;)
+    public ResponseEntity&lt;List&lt;TicketDetails&gt;&gt; searchPlayer
+        (@RequestParam (value = &quot;ticket_id&quot;,required = false) Integer ticketID,
+                @RequestParam(value = &quot;search&quot;, required = false) String param) {
+<span class="fc" id="L32">        return new ResponseEntity&lt;&gt;(ticketService.searchTicket(ticketID,param),HttpStatus.OK);</span>
+    }
+
+    @PostMapping(&quot;/tickets/addTicket&quot;)
+    public ResponseEntity&lt;String&gt; addTicket(@RequestBody TicketPojo ticketPojo){
+<span class="fc" id="L37">        List&lt;Object&gt; addResult = new ArrayList&lt;&gt;(ticketService.addTicket(ticketPojo));</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        if(Boolean.TRUE.equals(addResult.get(0))){</span>
+<span class="fc" id="L39">            return new ResponseEntity&lt;&gt;(String.valueOf(addResult.get(1)), HttpStatus.OK);</span>
+        }else {
+<span class="fc" id="L41">            return new ResponseEntity&lt;&gt;(String.valueOf(addResult.get(1)), HttpStatus.BAD_REQUEST);</span>
+        }
+    }
+    @PutMapping(&quot;/tickets/updateTicket&quot;)
+    public ResponseEntity&lt;String&gt; updateTicket(@RequestBody TicketPojo ticketPojo,
+                                               @RequestParam(value = &quot;ticket_id&quot;) Integer ticketID){
+<span class="fc" id="L47">        List&lt;Object&gt; updateResult = new ArrayList&lt;&gt;(ticketService.updateTicket(ticketPojo,ticketID));</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        if(Boolean.TRUE.equals(updateResult.get(0))){</span>
+<span class="fc" id="L49">            return new ResponseEntity&lt;&gt;(String.valueOf(updateResult.get(1)), HttpStatus.OK);</span>
+        }else {
+<span class="fc" id="L51">            return new ResponseEntity&lt;&gt;(String.valueOf(updateResult.get(1)), HttpStatus.BAD_REQUEST);</span>
+        }
+    }
+
+    @DeleteMapping(&quot;/tickets/deleteTicket&quot;)
+    public ResponseEntity&lt;String&gt; deleteTicket(@RequestParam(value = &quot;ticket_id&quot;) Integer ticketID){
+<span class="fc" id="L57">        String response = ticketService.deleteTicket(ticketID);</span>
+<span class="fc" id="L58">        return new ResponseEntity&lt;&gt;(response, HttpStatus.OK);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

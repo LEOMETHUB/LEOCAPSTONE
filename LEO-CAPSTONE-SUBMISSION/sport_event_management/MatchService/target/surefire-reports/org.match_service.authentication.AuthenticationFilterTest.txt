@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: org.match_service.authentication.AuthenticationFilterTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 17.877 s - in org.match_service.authentication.AuthenticationFilterTest

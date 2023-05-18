@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AuthenticationServiceV1/AuthenticationServiceV1.iml" filepath="$PROJECT_DIR$/AuthenticationServiceV1/AuthenticationServiceV1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FieldService/FieldService.iml" filepath="$PROJECT_DIR$/FieldService/FieldService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PlayerService/PlayerService.iml" filepath="$PROJECT_DIR$/PlayerService/PlayerService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TeamService/TeamService.iml" filepath="$PROJECT_DIR$/TeamService/TeamService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TournamentSerivceV1/TournamentSerivceV1.iml" filepath="$PROJECT_DIR$/TournamentSerivceV1/TournamentSerivceV1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/sport_event_management.iml" filepath="$PROJECT_DIR$/.idea/sport_event_management.iml" />
+    </modules>
+  </component>
+</project>

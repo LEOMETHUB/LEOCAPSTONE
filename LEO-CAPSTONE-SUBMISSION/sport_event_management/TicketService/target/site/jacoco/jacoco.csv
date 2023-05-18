@@ -1,0 +1,13 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+TicketService,sporteventmanagement.service,TicketService,0,268,0,8,0,66,0,12,0,8
+TicketService,sporteventmanagement.pojo,TicketPojo,24,0,0,0,10,0,7,0,7,0
+TicketService,sporteventmanagement.controller,TicketController,0,99,0,4,0,13,0,8,0,6
+TicketService,sporteventmanagement.entity,Match,59,0,0,0,25,0,17,0,17,0
+TicketService,sporteventmanagement.entity,Ticket,84,0,0,0,35,0,15,0,15,0
+TicketService,sporteventmanagement.entity,TicketDetails,66,0,0,0,28,0,14,0,14,0
+TicketService,sporteventmanagement.entity,Field,38,0,0,0,16,0,11,0,11,0
+TicketService,sporteventmanagement.exception,InvalidInputException,9,0,0,0,4,0,2,0,2,0
+TicketService,sporteventmanagement.exception,InvalidInput,27,0,0,0,10,0,5,0,5,0
+TicketService,sporteventmanagement.exception,ServiceExceptionHandler,22,0,0,0,6,0,2,0,2,0
+TicketService,sporteventmanagement.authentication,AuthenticationFilter,37,0,4,0,10,0,4,0,2,0
+TicketService,sporteventmanagement,TicketMain,8,0,0,0,3,0,2,0,2,0

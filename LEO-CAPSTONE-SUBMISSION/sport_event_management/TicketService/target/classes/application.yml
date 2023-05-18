@@ -1,0 +1,17 @@
+# Microservices related config
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/TicketDB
+    username: postgres
+    password: root
+  application:
+    name: MS05-TicketService-v1
+server:
+  port: 8085

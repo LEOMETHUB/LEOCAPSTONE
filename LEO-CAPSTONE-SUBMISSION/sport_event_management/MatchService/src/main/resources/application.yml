@@ -1,0 +1,22 @@
+# Microservices related config
+server:
+  port: 8082
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
+
+
+#Database configuration
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/MatchDB
+    username: postgres
+    password: root
+    hikari:
+      maximum-pool-size: 4
+  application:
+    name: MS02-MatchService-v1

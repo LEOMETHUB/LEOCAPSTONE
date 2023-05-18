@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="PlayerService" />
+        <module name="FieldService" />
+        <module name="EurekaServerV2" />
+        <module name="TournamentSerivceV1" />
+        <module name="TeamService" />
+        <module name="AuthenticationServiceV1" />
+        <module name="MatchService" />
+        <module name="TicketService" />
+        <module name="ApiGateway" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="AutenticationService" target="17" />
+      <module name="AuthenticationService" target="1.8" />
+      <module name="PlayerTeamTournamentService" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ApiGateway" options="-parameters" />
+      <module name="AutenticationService" options="-parameters" />
+      <module name="AuthenticationService" options="-parameters" />
+      <module name="AuthenticationServiceV1" options="-parameters" />
+      <module name="EurekaServerV2" options="-parameters" />
+      <module name="FieldService" options="-parameters" />
+      <module name="MatchService" options="-parameters" />
+      <module name="PlayerService" options="-parameters" />
+      <module name="PlayerTeamTournamentService" options="-parameters" />
+      <module name="TeamService" options="-parameters" />
+      <module name="TicketService" options="-parameters" />
+      <module name="TournamentSerivceV1" options="-parameters" />
+    </option>
+  </component>
+</project>
